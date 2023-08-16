@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <script>
+        const car = ["volvo","bmw","mercides","banana","smart"];
+        car.splice(3,1,"race","brush")
+        let dd = car.slice(1);
+        car.sort();
+        // for(let i = 0; i < car.length; i++){
+        //     console.log(car[i]);
+        // }
+        console.log(car);
+        car.forEach(myfun //function(element){
+        //     console.log(element);
+        // }
+        );
+        function myfun(value){
+            console.log(value);
+        }
+        function num(min,max){
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        // console.log(num(20,40));
+        // for( let i = 7; i > 0; i--){
+        //     console.log(i);
+        // }
+        // for(let i = 0; i <20; i++){
+        //     console.log(i);
+        // }
+        let can = "12345678";
+        let result = can.match(/[1-5]/g);
+        console.log(result);
+        let words = ["hello"," i"," am"," using"," laptop"];
+        let res = words.sort();
+        console.log(res);
+        let wordd = "hey there chrome how are you";
+        let res1 = wordd.replace('chrome','edge');
+        function reverse(str){
+            let newstr = " ";
+            for(let i = str.length - 1; i >= 0; i--){
+                newstr += str[i];
+            }
+            return newstr;
+        }
+        // let get = prompt('here');
+        // let cal = reverse(get);
+        // console.log(cal);;
+        function counter(str, letter){
+            let lett = 0;
+            for(let i = 0; i < str.length; i++){
+                if(str.charAt(i) == letter){
+                    lett += 1;
+                }
+            }
+            return lett;
+        }
+        let sam = "hello";
+        let up1 = sam.replace(/^./, sam[0].toUpperCase());
+        let up = sam.charAt(0).toUpperCase() + sam.slice(1);
+        console.log(up1);
+        let samm = 'o';
+        let res2 = counter(sam,samm);
+        console.log(res2);
+        let words3 = "hi i am new user";
+        // let check = words3.match(/[]);
+        function arrs(array, c){
+            let and = [];
+            for(let i = 0; i < array.length; i++){
+                if(array[i] !== c){
+                    and.push(array[i]);
+                }
+            }
+            return and;
+        }
+        const res4 = arrs([1,2,3,4,5],2);
+        console.log(res4);
+        const andss = [1,2,3,4,5,6];
+        andss.splice(3,0,8);
+        console.log(andss);
+        function addobj(arr,obj){
+            arr.push(obj);
+            console.log(arr)
+            
+        }
+        let arro = [1,2,3,4,5];
+            let objct = {x:2, Y:3};
+        addobj(arro,objct);
+        const stud = [{name:'sara',age:24},{name:'john', age:32},{name:'dareek',age:26}];
+        function compare(a,b){
+            let name1 = a.name.toUpperCase();
+            let name2 = b.name.toUpperCase();
+            let compare = 0;
+            if(name1> name2){
+                compare = 1;
+            }
+            else if(name2 > name1){
+                compare = -1;
+            }
+            return compare;
+        }
+        console.log(stud.sort(compare));
+        let a = "A";
+        let b = "B";
+        if(a<b){
+            console.log("yes");
+        }else{
+            console.log("no");
+        }
+        let obb = [{a:'3',b:'4'},{a:"5",b:"8"}];
+        function getsv(arr,a){
+            let ants = [];
+            for(i = 0; i < arr.length; i++){
+                ants.push(arr[i][a]);
+            }
+            return ants;
+        }
+        console.log(getsv(obb,'b'));
+        getsv(obb,'a');
+        function inter(arr1, arr2){
+            let seta = new Set(arr1);
+            let setb = new Set(arr2);
+            let inters = [];
+            for(let i of seta){
+                if(setb.has(i) ){
+                    inters.push(i);
+                }
+            }
+            return inters;
+        }
+        const arrss = [1,2,3,4,5];
+        const arrsss = [1,2,3,6,7,5];
+        const res5 = inter(arrss,arrsss);
+        console.log(res5);
+        function same(a,b){
+            let intern = new Set();
+            for(i of b){
+                intern.add(i);
+            }
+            return intern;
+
+        }
+        const setA = new Set(['apple', 'mango', 'orange']);
+        const setB = new Set(['grapes', 'apple', 'banana']);
+        console.log(same(setA,setB));
+        let x = 0;
+        let y;
+        const prom = new Promise(
+            function(resolve, reject){
+                if(x == 0){
+                    resolve("oks");
+                }
+                else{
+                    reject("error");
+                }
+            }
+        );
+        prom.then(
+            (value) => {y = value;
+                console.log(y);},
+            (error) => {y = error;
+                console.log(y);} 
+        );
+        function fun1(){
+            return new Promise((resolve) => {
+                setTimeout(()=> resolve("hello world"),1000);
+            });
+        }
+        function fun2(value){
+            return new Promise((resolve) => {
+                setTimeout(()=> resolve(`fun2 with ${value}`),3000);
+            });
+        }
+        function fun3(value){
+            return new Promise((resolve) => {
+                setTimeout(()=> resolve(`myfun3 with ${value}`),5000);
+            });
+        }
+        // fun1().then(x => fun2(x)).then(y => fun3(y)).then(f => {
+        //     console.log(f);
+        // }).catch(error => {
+        //     console.error("error");
+        // });
+        fun1()
+  .then(result1 => fun2(result1))
+  .then(result2 => fun3(result2))
+  .then(finalResult => {
+    console.log(finalResult);
+  })
+  .catch(error => {
+    console.error("Error occurred:", error);
+    });
+    function diss(value){
+        document.write(value);
+    }
+    function sumup(a,b,callback){
+        let sum = a + b;
+        return callback(sum);
+    }
+    sumup(3, 4, diss);
+
+    // let myprom = new Promise(function(resolve,reject){
+    //     let req = new XMLHttpRequest();
+    //     req.onload = function(){
+    //         if(this.status == 200){
+    //             resolve(this.response);
+    //         }else{
+    //             document.write("file not found");
+    //         }
+    //     }
+    //     req.open('GET', 'lorem.txt?t=', Math.random());
+    //     req.send();
+    // });
+    // myprom.then(function(value){
+    //     diss(value);
+    // },
+    // function(error){
+    //     diss(error);
+    // }
+    // );
+    let sth = "abcdefghijklmnopqrstuvwxyz";
+    let txt1 = "";
+    for(let i = 0; i< sth.length; i++){
+        txt1 = txt1 + sth[i] + "<br>";
+    }
+    let show = document.getElementById("demo").innerHTML = txt1;
+    let pro = new Promise(function(resolve, reject){
+        let xhttp = new XMLHttpRequest();
+        xhttp.onload = function(){
+            if(this.status === 200){
+                resolve(this.responseText);
+            }else{
+                reject("error");
+            }
+        };
+        xhttp.open('GET','lorem.txt');
+        xhttp.send();
+    });
+    
+    pro.then(function(value){
+        diss(value);
+    },
+    function(error){
+        diss(error);
+    });
+    function diiss(value){
+        document.write(value);
+    };
+    
+
+
+
+
+  
+  
+            
+        
+    </script>
+</body>
+</html>
